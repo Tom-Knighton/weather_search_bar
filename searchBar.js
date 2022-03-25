@@ -1,17 +1,23 @@
-import React, {useState} from 'react';
+import React from "react";
 import TextField from "@mui/material/TextField";
-import fixingData from "./fixingData.js"
 
-function SearchBar(){
-    return (
+function SearchBar(props) {
+  let inputHandler = (e) => {
+    const lowerCase = e.target.value.toLowerCase();
+    props.onTextChange(lowerCase);
+  };
 
-        <div classname = "searchbar">
-            <TextField label="Search" 
-            />
-
-        </div>
-    );
-
+  return (
+    <div className="searchbar">
+      <TextField
+        id="outlined-basic"
+        onChange={inputHandler}
+        variant="outlined"
+        fullWidth
+        label="Search"
+      />
+    </div>
+  );
 }
 
 export default SearchBar;
